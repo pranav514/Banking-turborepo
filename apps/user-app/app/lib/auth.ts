@@ -32,7 +32,7 @@ export const authOptions : AuthOptions = {
                     data : {
                         email : credentials.email,
                         phonenumber : credentials.phone,
-                        password : credentials.passwor
+                        password : credentials.password,
                     }
                 })
                 return {
