@@ -1,7 +1,7 @@
-import {PrismaClient} from "@repo/db/client";
+import db from "@repo/db/client";
 import { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-const client = new PrismaClient()
+
 export const authOptions : AuthOptions = {
     providers: [
         GoogleProvider({
@@ -17,13 +17,13 @@ export const authOptions : AuthOptions = {
         },
         async signIn({account , profile} : any){
             if(account.provider == "google"){
-                const existing = await client.merchant.findUnique({
+                const existing = await db.merchant.findUnique({
             where : {
                 email : profile.email
             }
            })
            if(!existing){
-            const user =  await client.merchant.create({
+            const user =  await db.merchant.create({
                 data : {
                     email : profile.email,
                     auth_type : "Google"
