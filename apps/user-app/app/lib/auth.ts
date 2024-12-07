@@ -1,7 +1,7 @@
-import {PrismaClient} from "@repo/db/client";
+import db from "@repo/db/client";
 import CredentialsProvider from "next-auth/providers/credentials"
 import { AuthOptions } from "next-auth";
-const client = new PrismaClient()
+
 export const authOptions : AuthOptions = {
     providers: [
         CredentialsProvider({
@@ -13,7 +13,7 @@ export const authOptions : AuthOptions = {
             //   name : {label : "name" , type : "text" , placeholder : "john"}
             },
             async authorize(credentials: any) {
-                const existinguser = await client.user.findUnique({
+                const existinguser = await db.user.findUnique({
                     where : {
                         phonenumber : credentials.phone
                     }
@@ -28,7 +28,7 @@ export const authOptions : AuthOptions = {
                     }
                     return null;
                 }
-                const user = await client.user.create({
+                const user = await db.user.create({
                     data : {
                         email : credentials.email,
                         phonenumber : credentials.phone,

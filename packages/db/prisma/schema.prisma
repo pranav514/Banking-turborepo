@@ -34,9 +34,9 @@ model OnRampTransaction {
   id        String    @id @default(uuid())
   status    OnRampStatus
   token     String       @unique
-  provider  String
+  provider  String?
   amount    Int
-  startTime DateTime
+  startTime DateTime @default(now())
   userId    String
   user User   @relation(fields: [userId] , references: [id])
 
@@ -46,7 +46,7 @@ model Balance {
   id     String  @id @default(uuid())
   userId String  @unique
   amount Int
-  locked Int
+  locked Int?
   user   User @relation(fields: [userId], references: [id])
 
 }
