@@ -1,6 +1,7 @@
 import db from "@repo/db/client";
 import CredentialsProvider from "next-auth/providers/credentials"
 import { AuthOptions } from "next-auth";
+import { use } from "react";
 
 export const authOptions : AuthOptions = {
     providers: [
@@ -48,6 +49,13 @@ export const authOptions : AuthOptions = {
         async session({token , session} : any){
             session.user.id = token.sub
             return session
-        }
-      }
+        },
+        // async signIn({user}){
+        //     if(user){
+        //         return '/dashboard'
+        //     }
+        //     return false;
+        // }
+      },
+      
 }

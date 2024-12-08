@@ -3,11 +3,18 @@
 import { NewButton } from "@repo/ui/button";
 import { useSession } from "next-auth/react";
 import { signIn, signOut } from "next-auth/react";
+import { redirect } from 'next/navigation'
 
 export default function AppBar() {
   const { data: session } = useSession();
-  const userInitial = session?.user?.email?.charAt(1)?.toUpperCase() || "";
+  const userInitial = session?.user?.email?.charAt(0)?.toUpperCase() || "";
+  console.log(session?.user)
+  // if(session?.user){
+  //   redirect('/dashboard')
+  // }else{
+  //   redirect('api/auth/signin')
 
+  // }
   return (
     <header className="w-full bg-gray-200 text-white shadow-md">
       <div className="flex items-center justify-between px-6 py-4">

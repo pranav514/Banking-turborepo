@@ -18,5 +18,8 @@
   },
   "exports" : {
     "./client" : "./dist/index.js"
-  }
+  },
+  "prisma": {
+  "seed": "ts-node prisma/seed.ts"
+}
 }
