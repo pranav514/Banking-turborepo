@@ -2,7 +2,6 @@
 import prisma from "@repo/db/client";
 import { authOptions } from "../auth";
 import { getServerSession } from "next-auth";
-
 export async function SendMoneyTo(amount:number, number:string) {
     const session = await getServerSession(authOptions);
     const userId  = String(session?.user?.id)
