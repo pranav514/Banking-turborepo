@@ -6,6 +6,8 @@ import { use } from "react";
 
 export  const onRamp =  async (amount : number  , provider  :string) => {
     const session = await getServerSession(authOptions)
+    //@ts-ignore
+
     const userid = session?.user?.id
     const token = Math.random().toString()
     if(!userid){

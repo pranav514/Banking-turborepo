@@ -12,9 +12,12 @@ async function getBalance() {
     const session = await getServerSession(authOptions);
     // const val = JSON.stringify(session)
     // console.log(val)
+    //@ts-ignore
     console.log(session?.user?.id)
     const balance = await db.balance.findFirst({
         where : {
+    //@ts-ignore
+
             userId : session?.user?.id
         }
     });
@@ -28,6 +31,8 @@ async function getOnRampTransactions() {
     const session = await getServerSession(authOptions);
     const txns = await db.onRampTransaction.findMany({
         where: {
+    //@ts-ignore
+
             userId: session?.user?.id
         }
     });

@@ -4,6 +4,7 @@ import { authOptions } from "../../lib/auth"
 import { NextResponse } from "next/server"
 export const GET = async() => {
     const session = await getServerSession(authOptions)
+    // @ts-ignore
     const userId = session?.user?.id
     const tran = await prisma.p2pTransfer.findMany({
         where : {

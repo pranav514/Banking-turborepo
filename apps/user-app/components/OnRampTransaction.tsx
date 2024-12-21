@@ -3,12 +3,12 @@ import { Card } from "@repo/ui/card"
 export const OnRampTransactions = ({
     transactions
 }: {
-    transactions: {
+    transactions : {
         Addtime: Date,
         amount: number,
         // TODO: Can the type of `status` be more specific?
         status: string,
-        provider: string
+        provider: string | null
     }[]
 }) => {
     if (!transactions.length) {
