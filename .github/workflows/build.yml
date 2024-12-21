@@ -1,7 +1,7 @@
-name: Build on PR
+name: Build on Commit
 
 on:
-  pull_request:
+  push:
     branches:
       - '**'
 
