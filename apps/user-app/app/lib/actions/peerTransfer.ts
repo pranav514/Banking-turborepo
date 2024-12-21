@@ -6,6 +6,7 @@ export async function SendMoneyTo(amount:number, number:string) {
     const session = await getServerSession(authOptions);
     //@ts-ignore
 
+    
     const userId  = String(session?.user?.id)
 
     if(!userId) return { message : "UnAuthorized User!"};
