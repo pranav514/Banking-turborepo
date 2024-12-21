@@ -70,6 +70,7 @@ const [number , setNumber] = useState("");
            <div className='text-gray-400 text-sm h-50 bg-stone-50 '>
              <p>amount : {t.amount}</p> 
           <p>name : {t.fromUser.name}</p>
+          
           <p>email : {t.fromUser.email}</p>
           </div>
             </div>
