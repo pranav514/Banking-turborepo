@@ -7,6 +7,7 @@ export const GET = async() => {
     // @ts-ignore
     const userId = session?.user?.id
     const tran = await prisma.p2pTransfer.findMany({
+        
         where : {
             fromUserId : userId 
         },select : {
