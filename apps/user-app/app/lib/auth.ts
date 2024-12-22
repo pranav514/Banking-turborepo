@@ -1,4 +1,4 @@
-import db from "@repo/db/client";
+import prisma from "@repo/db/client";
 import CredentialsProvider from "next-auth/providers/credentials"
 import { AuthOptions } from "next-auth";
 import { use } from "react";
@@ -14,7 +14,7 @@ export const authOptions : AuthOptions = {
             //   name : {label : "name" , type : "text" , placeholder : "john"}
             },
             async authorize(credentials: any) {
-                const existinguser = await db.user.findUnique({
+                const existinguser = await prisma.user.findUnique({
                     where : {
                         phonenumber : credentials.phone
                     }
@@ -29,7 +29,7 @@ export const authOptions : AuthOptions = {
                     }
                     return null;
                 }
-                const user = await db.user.create({
+                const user = await prisma.user.create({
                     data : {
                         email : credentials.email,
                         phonenumber : credentials.phone,
