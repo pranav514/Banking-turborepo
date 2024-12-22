@@ -5,12 +5,8 @@ import { getServerSession } from "next-auth";
 export async function SendMoneyTo(amount:number, number:string) {
     const session = await getServerSession(authOptions);
     //@ts-ignore
-
-    
     const userId  = String(session?.user?.id)
-
     if(!userId) return { message : "UnAuthorized User!"};
-
     const toUser = await prisma.user.findFirst({
         where:{
             phonenumber : number
