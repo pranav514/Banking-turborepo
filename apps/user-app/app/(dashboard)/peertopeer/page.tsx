@@ -66,7 +66,6 @@ const [number , setNumber] = useState("");
           recivedtran.map((t : any) => {
             return <div >
           <h3><hr /></h3>
-
            <div className='text-gray-400 text-sm h-50 bg-stone-50 '>
              <p>amount : {t.amount}</p> 
           <p>name : {t.fromUser.name}</p>
