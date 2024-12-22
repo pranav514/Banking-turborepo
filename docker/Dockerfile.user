@@ -13,6 +13,6 @@ RUN npm install --legacy-peer-deps
 RUN cd packages/db && npx prisma generate && cd ../..
 
 # Can you filter the build down to just one app?
-RUN npm run build
+RUN yarn run build
 
 CMD ["npm", "run", "start-user-app"]
