@@ -1,7 +1,7 @@
 name: Build on Commit
 
 on:
-  pull_request:
+  push:
     branches:
       - '**'
 
@@ -19,4 +19,4 @@ jobs:
         run: npm install --legacy-peer-deps
         
       - name: Run Build
-        run: npm run build
+        run: yarn run build
